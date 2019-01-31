@@ -227,31 +227,31 @@ void SysTick_Handler(void)
 void EXTI0_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI0_IRQn 0 */
-  if(count>1000)
+  /*if(count>1000)
   {
    HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
    count=0;
   }
-  count++;
+  count++;*/
   if(init_flag==1)
   {
    bmi088_get_synchronized_data(&user_accel_bmi088,&user_gyro_bmi088, &dev);
 
    if((user_accel_bmi088.x>-ZERO_RANGE)&&(user_accel_bmi088.x<ZERO_RANGE))
    {
-    HAL_GPIO_WritePin(LD1_GPIO_Port,LD1_Pin,GPIO_PIN_SET);
-   }
-   else
-   {
-    HAL_GPIO_WritePin(LD1_GPIO_Port,LD1_Pin,GPIO_PIN_RESET);
-   }
-   if((user_accel_bmi088.y>-ZERO_RANGE)&&(user_accel_bmi088.y<ZERO_RANGE))
-   {
     HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,GPIO_PIN_SET);
    }
    else
    {
     HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,GPIO_PIN_RESET);
+   }
+   if((user_accel_bmi088.y>-ZERO_RANGE)&&(user_accel_bmi088.y<ZERO_RANGE))
+   {
+    HAL_GPIO_WritePin(LD3_GPIO_Port,LD3_Pin,GPIO_PIN_SET);
+   }
+   else
+   {
+    HAL_GPIO_WritePin(LD3_GPIO_Port,LD3_Pin,GPIO_PIN_RESET);
    }
   }
 
@@ -260,20 +260,6 @@ void EXTI0_IRQHandler(void)
   /* USER CODE BEGIN EXTI0_IRQn 1 */
 
   /* USER CODE END EXTI0_IRQn 1 */
-}
-
-/**
-  * @brief This function handles EXTI line1 interrupt.
-  */
-void EXTI1_IRQHandler(void)
-{
-  /* USER CODE BEGIN EXTI1_IRQn 0 */
-
-  /* USER CODE END EXTI1_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
-  /* USER CODE BEGIN EXTI1_IRQn 1 */
-
-  /* USER CODE END EXTI1_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

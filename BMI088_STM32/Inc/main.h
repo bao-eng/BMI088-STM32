@@ -94,9 +94,7 @@ void Error_Handler(void);
 #define RMII_RXD0_GPIO_Port GPIOC
 #define RMII_RXD1_Pin GPIO_PIN_5
 #define RMII_RXD1_GPIO_Port GPIOC
-#define LD1_Pin GPIO_PIN_0
-#define LD1_GPIO_Port GPIOB
-#define CSB2_Pin GPIO_PIN_1
+#define CSB2_Pin GPIO_PIN_2
 #define CSB2_GPIO_Port GPIOB
 #define RMII_TXD1_Pin GPIO_PIN_13
 #define RMII_TXD1_GPIO_Port GPIOB
